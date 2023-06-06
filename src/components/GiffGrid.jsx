@@ -1,31 +1,26 @@
 import PropTypes from 'prop-types'
-import { useEffect, useState } from 'react'
-import { fetchImages } from '../helpers/fetchImages'
 import { GiffItem } from './GiffItem'
+import { useFetchGifs } from '../hooks/useFetchGifs'
 
 export const GiffGrid = ({ category }) => {
-  const [images, setImages] = useState([])
-
-  useEffect(() => {
-    async function getImages() {
-      const gifs = await fetchImages(category)
-      setImages(gifs)
-    }
-
-    getImages()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  const { images, isLoading } = useFetchGifs(category)
 
   return (
-    <div>
-      <h2>{category}</h2>
+    <>
+      {isLoading ? (
+        <h2>Loading...</h2>
+      ) : (
+        <div>
+          <h2>{category}</h2>
 
-      <div className="card-grid">
-        {images.map((img) => (
-          <GiffItem key={img.id} {...img} />
-        ))}
-      </div>
-    </div>
+          <div className="card-grid">
+            {images.map((img) => (
+              <GiffItem key={img.id} {...img} />
+            ))}
+          </div>
+        </div>
+      )}
+    </>
   )
 }
 
