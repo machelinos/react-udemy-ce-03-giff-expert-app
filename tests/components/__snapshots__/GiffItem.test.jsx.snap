@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<GiffItem /> tests <GiffItem /> render shoould match the snapshot 1`] = `
+<div>
+  <div
+    class="card"
+  >
+    <img
+      alt="Buffy"
+      src="https://media0.giphy.com/media/3o6Zt9MapEhDVITFpC/giphy.gif?cid=001d3785bwobjphsdmhyek0m4pyv3ufzylysh5redeoj9fq0&ep=v1_gifs_search&rid=giphy.gif&ct=g"
+    />
+    <p>
+      Buffy
+    </p>
+  </div>
+</div>
+`;

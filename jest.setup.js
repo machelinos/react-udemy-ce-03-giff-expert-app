@@ -1,1 +1,1 @@
-import 'isomorphic-search'
+import 'isomorphic-fetch'
